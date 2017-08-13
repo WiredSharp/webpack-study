@@ -18,6 +18,14 @@ config = {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
             use: ['babel-loader']
+        }, {
+            test: /\.scss$/,
+            exclude: /(node_modules|bower_components)/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+        }, {
+            test: /\.css$/,
+            exclude: /(node_modules|bower_components)/,
+            use: ['style-loader', 'css-loader']
         }]
     },
     plugins: []
