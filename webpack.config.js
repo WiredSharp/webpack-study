@@ -1,5 +1,6 @@
 const path = require('path')
 const uglify = require('uglifyjs-webpack-plugin')
+const textExtract = require('extract-text-webpack-plugin')
 
 const isDev = process.argv.find(function(e) {
     return e === "-d"
@@ -28,7 +29,11 @@ config = {
             use: ['style-loader', 'css-loader']
         }]
     },
-    plugins: []
+    plugins: [
+        new textExtract({
+            filename: '[name].css'
+        })
+    ]
 }
 
 if (!isDev) {
